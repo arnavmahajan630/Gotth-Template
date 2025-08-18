@@ -1,0 +1,22 @@
+package main
+
+import (
+	"log"
+	"log/slog"
+	"net/http"
+	"os"
+
+	handler "github.com/arnavmahajan630/GOTTH-TEMPLATE/handlers"
+	"github.com/go-chi/chi/v5"
+	"github.com/joho/godotenv"
+)
+
+func main() {
+	if err := godotenv.Load(); err != nil {
+		log.Fatal(err)
+	}
+	r := chi.NewMux()
+	r.Get("/foo", handler.Make(handler.Foo))
+	slog.Info("HTTP Server started", "Port", os.Getenv("PORT"))
+	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), r))
+}

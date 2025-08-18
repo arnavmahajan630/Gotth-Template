@@ -1,0 +1,12 @@
+package handler
+
+import (
+	"net/http"
+
+	foo "github.com/arnavmahajan630/GOTTH-TEMPLATE/handlers/views"
+)
+
+func Foo(w http.ResponseWriter, r * http.Request) error {
+	return foo.Index().Render(r.Context(), w);
+	
+}
