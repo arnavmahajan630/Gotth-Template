@@ -1,5 +1,9 @@
 package foo
 
+import "github.com/arnavmahajan630/GOTTH-TEMPLATE/handlers/views/layouts"
+
 templ Index() {
-    <h1>Hello World</h1>
+    @layouts.Base() {
+        <h1>Hello World</h1>
+    }
 }
