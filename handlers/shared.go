@@ -3,6 +3,8 @@ package handler
 import (
 	"log/slog"
 	"net/http"
+
+	"github.com/a-h/templ"
 )
 
 type HTTPHandler func(w http.ResponseWriter, r * http.Request) error
@@ -10,6 +12,10 @@ func Make(g HTTPHandler)http.HandlerFunc {
 		return func(w http.ResponseWriter, r * http.Request) {
 			if err := g(w, r); err != nil {slog.Error("HTTP Handler Error", "err", err, "path", r.URL.Path)}
 		}
+}
+
+func Render(w http.ResponseWriter, r * http.Request, c  templ.Component) error{
+	return c.Render(r.Context(), w)
 }
 
 
