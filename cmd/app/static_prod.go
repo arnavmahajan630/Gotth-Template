@@ -1,4 +1,5 @@
 //go:build prod
+package main
 import (
 	"embed"
 	"net/http"
