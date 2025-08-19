@@ -17,7 +17,7 @@ func main() {
 	}
 	r := chi.NewMux()
 	r.Handle("/public/*", public())
-	r.Get("/foo", handler.Make(handler.Foo))
+	r.Get("/home", handler.Make(handler.Home))
 	slog.Info("HTTP Server started", "Port", os.Getenv("PORT"))
 	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), r))
 }

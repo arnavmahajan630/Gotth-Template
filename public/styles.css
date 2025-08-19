@@ -558,6 +558,18 @@ video {
   position: static;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
 .border {
   border-width: 1px;
 }
