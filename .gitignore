@@ -1,4 +1,4 @@
 .env
 indent.md
 tmp
-bin
+bin/
