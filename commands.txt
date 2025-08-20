@@ -1,3 +1,10 @@
 make
 air
 templ generate --watch --proxy=http://localhost:3000
+
+// change source
+$old = "github.com/arnavmahajan630/GOTTH-TEMPLATE"
+$new = "github.com/arnavmahajan630/checkout-htmx"
+Get-ChildItem -Recurse -Include *.go | ForEach-Object {
+    (Get-Content $_.FullName) -replace [regex]::Escape($old), $new | Set-Content $_.FullName
+}
