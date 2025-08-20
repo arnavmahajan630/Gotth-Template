@@ -8,3 +8,7 @@ $new = "github.com/arnavmahajan630/checkout-htmx"
 Get-ChildItem -Recurse -Include *.go | ForEach-Object {
     (Get-Content $_.FullName) -replace [regex]::Escape($old), $new | Set-Content $_.FullName
 }
+
+// rm git as source
+
+rm -rf .git
